@@ -1,73 +1,58 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# This application contains:
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### BackEnd
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## APIs -> services controllers interface using NestJS
 
-## Description
+### FrontEnd
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Angular, Angular Material and Angular forms with Upload and CRUD Operations
 
-## Installation
 
-```bash
-$ npm install
-```
+### Testing
 
-## Running the app
+## using Cypress and Mocha Frameworks
 
-```bash
-# development
-$ npm run start
+### Install the application 
 
-# watch mode
-$ npm run start:dev
+ - Clone the Repo 
 
-# production mode
-$ npm run start:prod
-```
+ - start the backend in dev mode after adding the .env file
 
-## Test
+ `cd api`
+ `npm install`
+ `npm run start:dev`
 
-```bash
-# unit tests
-$ npm run test
+ - start the frontend  (have to add the .env file also)
 
-# e2e tests
-$ npm run test:e2e
+ `cd frontend`
+ `npm install`
+ `ng serve`
 
-# test coverage
-$ npm run test:cov
-```
+ - start the e2e generating report (it's only for the html form)
 
-## Support
+`npm run cypress:report`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+# Instructions to run the Project 
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## With Docker
+Command:  
+`docker-compose up`  
+and then visit `localhost:4200`
 
-## License
+### Tipps & Tricks for docker
+If you need to remove docker images or containers you can use one of the following commands.
 
-Nest is [MIT licensed](LICENSE).
+Command to remove all images:  
+`docker rmi -f $(docker images -a -q)`
+
+Command to remove all containers:  
+`docker rm -vf $(docker ps -a -q)`
+
+
+## Without Docker
+### 2. Add an environment file to the project
+Add a .env file in the api folder (at the top of your api folder, so nest can find it)  
+ - add your own DATABASE_URL in the .env file
+ - add your own JWT_SECRET in the .env file
