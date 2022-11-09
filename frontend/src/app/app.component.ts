@@ -10,8 +10,13 @@ import { AuthenticationService } from './services/authentication-service/authent
 export class AppComponent {
   title = 'frontend';
 
-  constructor(
-    private router: Router,
-    private authService: AuthenticationService
-  ){}
+  constructor(private router: Router, private authService: AuthenticationService) {}
+
+  navigateTo(value: any) {
+    this.router.navigate(['../', value]);
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }
