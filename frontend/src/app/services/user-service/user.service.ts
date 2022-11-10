@@ -44,8 +44,8 @@ export class UserService {
     params = params.append('page', String(page));
     params = params.append('limit', String(size));
 
-    return this.http.get('/api/users', {params}).pipe(
-      map((userData: UserData) => userData),
+    return this.http.get<UserData>('/api/users', {params})
+    .pipe(map((userData: UserData) => userData),
       catchError(err => throwError(err))
     )
   }
@@ -64,8 +64,8 @@ export class UserService {
     params = params.append('limit', String(size));
     params = params.append('username', username);
 
-    return this.http.get('/api/users', {params}).pipe(
-      map((userData: UserData) => userData),
+    return this.http.get<UserData>('/api/users', {params})
+    .pipe(map((userData: UserData) => userData),
       catchError(err => throwError(err))
     )
   }
