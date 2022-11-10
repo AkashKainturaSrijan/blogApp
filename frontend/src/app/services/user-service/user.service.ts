@@ -34,7 +34,7 @@ export class UserService {
     )
   }
 
-  updateOne(user): Observable<User> {
+  updateOne(user: { id: string; }): Observable<User> {
     return this.http.put('api/users/' + user.id, user);
   }
 
