@@ -1,26 +1,33 @@
-version: '1'
+version: "3.8"
 
 services:
-  # Nest APIs
+  # Our NestJS Api
   api:
-    build: 
+    build:
       dockerfile: Dockerfile
       context: ./api
+      # Only build development stage from Dockerfile
       target: development
-      volumes: 
-        - ./api:/src/app
-        - /src/app/node_modules/
-      command: npm run start:debug
-      depends_on:
-        - postgres
-      environment:
-          DATABASE_URL: postgres://user:password@postgres:5432/db
-          NODE_ENV: development
-          JWT_SECRET: 
-          PORT: 3000
-      ports:
-        - 3000:3000
-        - 9229:9229
+    # Mount our host dir to the docker container
+    # Mount api directory (./api) to (:) docker container (/thomas/src/app)
+    # Reflect File changes from host to container
+    volumes:
+      - ./api:/src/app
+      - /src/app/node_modules/
+    # RUN in debug mode: npm run start:debug --> Also start your vscode debugger
+    # Run in dev mode: npm run start:dev
+    command: npm run start:debug
+    depends_on: 
+      - postgres
+    environment:
+      DATABASE_URL: postgres://user:password@postgres:5432/db
+      NODE_ENV: development
+      JWT_SECRET: hard_to_guess_secret_123
+      PORT: 3000
+    ports:
+      - 3000:3000
+      - 9229:9229
+  
   # Our Angular Frontend
   frontend:
     build:
@@ -29,8 +36,8 @@ services:
       target: development
     command: npm run start
     volumes:
-      - ./frontend:/frontend/src/app
-      - /frontend/src/app/node_modules
+      - ./frontend:/thomas/frontend/src/app
+      - /thomas/frontend/src/app/node_modules
     ports:
       - 4200:4200
     links:
