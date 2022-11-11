@@ -36,8 +36,8 @@ services:
       target: development
     command: npm run start
     volumes:
-      - ./frontend:/thomas/frontend/src/app
-      - /thomas/frontend/src/app/node_modules
+      - ./frontend:/blogApp/frontend/src/app
+      - /blogApp/frontend/src/app/node_modules
     ports:
       - 4200:4200
     links:
