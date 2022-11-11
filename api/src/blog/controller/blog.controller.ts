@@ -118,6 +118,7 @@ export class BlogController {
   }
 
   @Get('image/:imagename')
+  // eslint-disable-next-line @typescript-eslint/ban-types
   findImage(@Param('imagename') imagename, @Res() res): Observable<Object> {
     return of(
       res.sendFile(
