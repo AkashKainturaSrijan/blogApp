@@ -6,7 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { UserRole } from './user.interface';
-import { BlogEntryEntity } from 'src/blog/model/blog-entry.entity';
+import { BlogEntryEntity } from 'src/blog/models/blog-entry.entity';
 
 @Entity()
 export class UserEntity {
